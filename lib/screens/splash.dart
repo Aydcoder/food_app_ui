@@ -84,7 +84,82 @@ class Splash extends StatelessWidget {
                             borderRadius: BorderRadius.circular(18.0),
                           ),
                         ),
+                        textStyle: MaterialStateProperty.all(
+                          const TextStyle(fontFamily: "Nunito"),
+                        ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            child: Center(
+                              child: Image.asset(
+                                "assets/images/icons/facebook.png",
+                                width: 20,
+                              ),
+                            ),
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent,
+                              ),
+                              padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(vertical: 18),
+                              ),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: const BorderSide(
+                                    color: Colors.white38,
+                                    width: 1,
+                                  ),
+                                ),
+                              ),
+                              textStyle: MaterialStateProperty.all(
+                                const TextStyle(fontFamily: "Nunito"),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: ElevatedButton(
+                            child: Center(
+                              child: Image.asset(
+                                "assets/images/icons/google.png",
+                                width: 20,
+                              ),
+                            ),
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent,
+                              ),
+                              padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(vertical: 18),
+                              ),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(
+                                    color: Colors.white38,
+                                    width: 1,
+                                  ),
+                                ),
+                              ),
+                              textStyle: MaterialStateProperty.all(
+                                const TextStyle(fontFamily: "Nunito"),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     )
                   ]),
                 ],

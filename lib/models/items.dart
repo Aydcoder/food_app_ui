@@ -4,7 +4,7 @@ class Item {
   final String name;
   final double rating;
   final int? previousPrice;
-  final String? seller;
+  final String seller;
 
   Item(
       {required this.imageName,
@@ -12,5 +12,5 @@ class Item {
       required this.name,
       required this.rating,
       this.previousPrice,
-      this.seller});
+      this.seller = ""});
 }

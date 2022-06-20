@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfffdfeff),
+      backgroundColor: Color.fromARGB(255, 246, 246, 246),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -77,7 +77,11 @@ class _HomeState extends State<Home> {
             const SizedBox(
               height: 20,
             ),
-            const _TrendingToday()
+            const _TrendingToday(),
+            const SizedBox(
+              height: 20,
+            ),
+            const Expanded(child: _Recommend())
           ],
         ),
       ),
@@ -205,6 +209,212 @@ class __TrendingTodayState extends State<_TrendingToday> {
                 ),
               );
             }).toList(),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class _Recommend extends StatefulWidget {
+  const _Recommend({Key? key}) : super(key: key);
+
+  @override
+  State<_Recommend> createState() => __RecommendState();
+}
+
+class __RecommendState extends State<_Recommend> {
+  List<Item> recommended = [
+    Item(
+      imageName: "drumstick.jpg",
+      name: "Chicken Drumstick And Source",
+      price: 12,
+      previousPrice: 20,
+      seller: "Mamang Ndut",
+      rating: 4.5,
+    ),
+    Item(
+      imageName: "fried_chicken.jpg",
+      name: "Fried Chicken With Vegetable",
+      price: 16,
+      previousPrice: 17,
+      seller: "Joko Tole",
+      rating: 4.5,
+    ),
+    Item(
+      imageName: "sushi_fish.jpg",
+      name: "See Food And Sushi Fish",
+      price: 16,
+      previousPrice: 17,
+      seller: "Mamang Ndut",
+      rating: 4.5,
+    ),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Recommended for you",
+          style: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Nunito",
+          ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: recommended.map((e) {
+                return Container(
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.only(bottom: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 70,
+                        width: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          image: DecorationImage(
+                            image: AssetImage(
+                                "assets/images/items/" + e.imageName),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    e.name,
+                                    style: const TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Nunito",
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "By " + e.seller,
+                                    style: const TextStyle(
+                                        fontSize: 8.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Nunito",
+                                        color: Colors.black54),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "\$" + e.price.toString() + ".00",
+                                        style: const TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "Nunito",
+                                          color:
+                                              Color.fromARGB(255, 255, 82, 192),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "\$" +
+                                            e.previousPrice.toString() +
+                                            ".00",
+                                        style: const TextStyle(
+                                            fontSize: 8.0,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: "Nunito",
+                                            color: Colors.black54),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 246, 246, 246),
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const Icon(
+                                        Icons.star,
+                                        color: Color(0xfffe9900),
+                                        size: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 2,
+                                      ),
+                                      Text(
+                                        e.rating.toString(),
+                                        style: const TextStyle(
+                                          fontSize: 8.0,
+                                          fontFamily: "Nunito",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 25,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 82, 192),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.shopping_cart_outlined,
+                                    size: 14,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
           ),
         )
       ],

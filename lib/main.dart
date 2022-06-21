@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_ui/screens/home.dart';
-import 'package:food_app_ui/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());

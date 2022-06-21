@@ -147,7 +147,7 @@ class Splash extends StatelessWidget {
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
-                                  side: BorderSide(
+                                  side: const BorderSide(
                                     color: Colors.white38,
                                     width: 1,
                                   ),

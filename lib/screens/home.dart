@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_app_ui/models/items.dart';
+import 'package:food_app_ui/models/navs.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,10 +13,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<Nav> navs = [
+    Nav(icon: FontAwesomeIcons.house),
+    Nav(icon: Icons.apps_rounded),
+    Nav(icon: Icons.qr_code_scanner_rounded, isCenter: true),
+    Nav(icon: FontAwesomeIcons.heart),
+    Nav(icon: Icons.person_outline_rounded)
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 246, 246, 246),
+      backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -85,6 +94,37 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: navs.map((e) {
+              return e.isCenter
+                  ? Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 255, 82, 192),
+                      ),
+                      child: Icon(
+                        e.icon,
+                        size: 14,
+                        color: Colors.white,
+                      ),
+                    )
+                  : Icon(
+                      e.icon,
+                      size: 14,
+                      color: Colors.black54,
+                    );
+            }).toList(),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -97,7 +137,7 @@ class _TrendingToday extends StatefulWidget {
 }
 
 class __TrendingTodayState extends State<_TrendingToday> {
-  List<Item> _trendingToday = [
+  List<Item> trendingToday = [
     Item(
       imageName: "sushi_fish.jpg",
       name: "Sushi Fish",
@@ -133,7 +173,7 @@ class __TrendingTodayState extends State<_TrendingToday> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: _trendingToday.map((e) {
+            children: trendingToday.map((e) {
               return Container(
                 height: 120,
                 width: 100,

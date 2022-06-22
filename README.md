@@ -2,7 +2,7 @@
 
 FOOD APP UI.
 
-![alt text](http://url/to/img.png)
+![alt text](https://raw.githubusercontent.com/Aydcoder/food_app_ui/master/assets/images/ui.jpg)
 
 This project ui was created with flutter.
 

@@ -2,7 +2,7 @@
 
 FOOD APP UI.
 
-## Getting Started
+![alt text](http://url/to/img.png)
 
 This project ui was created with flutter.
 
